@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments :: head"></head>
+<body class="container" style="background-color: #8c8273;">
+<div class="container" style="padding-top: 5em; filter: drop-shadow(8px 8px 4px black);">
+    <div class="jumbotron">
+        <h1 class="display-4" th:text="${title}">Edit Event:</h1>
+        <p class="lead">We out here.</p>
+        <nav th:replace="fragments :: navigation"></nav>
+        <form method="post" th:action="@{/events/edit}">
+            <input type="hidden" th:value="${event.id}" name="eventId" />
+            <label>Name: <input type="text" name="name" th:value="${event.name}"></label><br>
+            <label>Description: <input type="text" name="description" th:value="${event.description}"></label><br>
+            <input type="submit" value="Edit Event">
+        </form>
+        <hr class="my-4">
+        <p>Additional body content</p>
+    </div>
+</div>
+</body>
+</html>
